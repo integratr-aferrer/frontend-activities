@@ -1,26 +1,41 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="container" class="d-flex justify-content-center align-items-center row h-100">
+    <form id="card" class="d-flex flex-column justify-content-center gap-3 bg-white shadow-lg rounded-4 h-auto p-5 text-center col-12 col-sm-9 col-md-7 col-lg-6 col-xl-5">
+      <h3 class="text-uppercase">login</h3>
+      <p class="text-start fs-4 fw-light">Please enter your credentials to login.</p>
+      <input class="p-3 bg-light border-0" type="text" name="username" placeholder="username">
+      <input class="p-3 bg-light border-0" type="password" name="password" placeholder="password">
+      <button class="p-3 border-0 text-center text-white text-uppercase" type="submit">login</button>
+      <p class="text-muted">Not registered? <a href="#" class="text-success text-decoration-none">Create an account</a></p>
+    </form>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body {
+  width: 100%;
+  height: 100vh;
+}
+
+#container, button {
+  background-image: linear-gradient(45deg,#10867c, #3cc771);
+}
+
+@media screen and (max-width: 576px) {
+  #container {
+    background: white;
+  }
+
+  #card {
+    box-shadow: unset !important;
+    border: none !important;
+  }
 }
 </style>
