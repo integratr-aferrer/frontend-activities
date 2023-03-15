@@ -1,30 +1,50 @@
 <template>
-  <div class="w-100 h-auto">
-    <!-- HEADER -->
+  <div class="w-100 h-100">
     <Header></Header>
-    <!-- BODY -->
-    <!-- FOOTER -->
+    <div class="w-100 h-auto container-fluid px-5 py-3 overflow-auto">
+      <router-view></router-view>
+    </div>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
-import Header from '@/components/Header.vue'
+import Header from "@/components/Header.vue"
+import Footer from "@/components/Footer.vue"
 
 export default {
   name: 'App',
   components: {
     Header,
-  },
-  mounted() {
-    console.log("heya");
-    this.$router.push({path: '/login'});
-  },
+    Footer
+  }
 }
 </script>
 
 <style>
+:root {
+  --primary: #f3525A;
+  --secondary: #152440;
+}
 body {
   width: 100%;
   height: 100vh;
+  font-family: 'Barlow', sans-serif;
+}
+
+.clr-primary {
+  color: var(--primary);
+}
+
+.clr-secondary {
+  color: var(--secondary);
+}
+
+.custom-bg-primary {
+  background-color: var(--primary);
+}
+
+.custom-bg-secondary {
+  background-color: var(--secondary);
 }
 </style>
