@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue';
+import ViewAnime from '@/views/ViewAnime.vue';
 import About from '@/views/About.vue';
 import Activities from '@/views/Activities.vue';
 import Login from '@/views/Login.vue';
@@ -20,6 +21,13 @@ const routes = [
     name: 'Activities',
     props: true,
     component: Activities,
+  },
+  {
+    path: '/view-anime/:id',
+    name: 'ViewAnime',
+    props: true,
+    component: ViewAnime,
+
   },
   {
     path: '/login',
