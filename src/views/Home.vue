@@ -12,64 +12,14 @@
 
 <script>
 import Card from '@/components/Card.vue'
-
+import axios from 'axios';
 export default {
     components: {
         Card,
     },
     data() {
         return {
-            cards: [
-                {
-                    id: 1,
-                    title: "Monday",
-                    description: "Lorem ipsum dolor sit amet. Et dolore omnis sit minima blanditiis aut vitae soluta.",
-                    imgSource: "https://picsum.photos/id/1/200/120",
-                    hidden: false,
-                },
-                {
-                    id: 2,
-                    title: "Tuesday",
-                    description: "Lorem ipsum dolor sit amet. Et dolore omnis sit minima blanditiis aut vitae soluta.",
-                    imgSource: "https://picsum.photos/id/24/200/120",
-                    hidden: false,
-                },
-                {
-                    id: 3,
-                    title: "Wednesday",
-                    description: "Lorem ipsum dolor sit amet. Et dolore omnis sit minima blanditiis aut vitae soluta.",
-                    imgSource: "https://picsum.photos/id/3/200/120",
-                    hidden: false,
-                },
-                {
-                    id: 4,
-                    title: "Thursday",
-                    description: "Lorem ipsum dolor sit amet. Et dolore omnis sit minima blanditiis aut vitae soluta.",
-                    imgSource: "https://picsum.photos/id/100/200/120",
-                    hidden: false,
-                },
-                {
-                    id: 5,
-                    title: "Friday",
-                    description: "Lorem ipsum dolor sit amet. Et dolore omnis sit minima blanditiis aut vitae soluta.",
-                    imgSource: "https://picsum.photos/id/15/200/120",
-                    hidden: false,
-                },
-                {
-                    id: 6,
-                    title: "Saturday",
-                    description: "Lorem ipsum dolor sit amet. Et dolore omnis sit minima blanditiis aut vitae soluta.",
-                    imgSource: "https://picsum.photos/id/69/200/120",
-                    hidden: false,
-                },
-                {
-                    id: 7,
-                    title: "Sunday",
-                    description: "Lorem ipsum dolor sit amet. Et dolore omnis sit minima blanditiis aut vitae soluta.",
-                    imgSource: "https://picsum.photos/id/32/200/120",
-                    hidden: false,
-                },
-            ]
+            cards: [],
         }
     },
     methods: {
@@ -86,7 +36,15 @@ export default {
                     this.cards.splice(index, 1);
                 }
             })
-        }
+        },
+        async fetchAnime() {
+            let anime = await axios.get("https://api.jikan.moe/v4/anime?limit=12");
+            this.cards = anime.data.data;
+            console.log(this.cards)
+        },
+    },
+    mounted() {
+        this.fetchAnime();
     },
 }
 </script>
