@@ -2,10 +2,10 @@
     <header class="sticky-top bg-white">
         <nav class="navbar navbar-expand-sm shadow-sm">
             <div class="container-fluid px-5 d-flex">
-                <a href="#" class="navbar-brand d-flex align-items-center fw-bold clr-primary">
+                <router-link to="/" class="navbar-brand d-flex align-items-center fw-bold clr-primary">
                     <i class="brand-icon h2 me-2 fa-solid fa-dragon"></i>
                     <span class="brand-name h1 fw-bold">A.FERRER</span>
-                </a>
+                </router-link>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -16,7 +16,7 @@
                                 <router-link :to="{ name: link.pathName }" class="nav-link">{{ link.linkName }}</router-link>
                             </li>
                             <li v-else class="nav-item dropdown">
-                                <router-link :to="{ name: link.pathName }" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ link.linkName }}</router-link>
+                                <a :class="{active:isActive}" class="nav-link dropdown-toggle" data-bs-auto-close="outside" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ link.linkName }}</a>
                                 <ul class="dropdown-menu">
                                 <template v-for="sublink in link.subLinks" :key="sublink.id">
                                         <li><router-link :to="{path: `/activities/${sublink.id}`}" class="dropdown-item">{{sublink.linkName}}</router-link></li>
@@ -72,7 +72,7 @@ export default {
                 },
                 {
                     linkName: 'Activities',
-                    pathName: 'Home',
+                    pathName: 'Activities',
                     subLinks: [
                         {
                             id: 1,
@@ -91,8 +91,20 @@ export default {
             ],
         }
     },
+    computed: {
+        isActive() {
+            return this.$route.name === 'Activities';
+        }
+    },
 }
 </script>
 
 <style scoped>
+.router-link-active,.router-link-exact-active {
+    color: var(--primary);
+}
+
+.active {
+    color: var(--primary) !important;
+}
 </style>
