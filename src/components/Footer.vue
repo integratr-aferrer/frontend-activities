@@ -4,18 +4,18 @@
         <div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
             <h3 class="mb-3">Quick Links</h3>
             <div class="d-flex flex-column gap-2">
-                <div>
-                    <i class="clr-primary fa fa-arrow-right me-2"></i>
-                    <span>Item 1</span>
-                </div>
-                <div>
-                    <i class="clr-primary fa fa-arrow-right me-2"></i>
-                    <span>Item 2</span>
-                </div>
-                <div>
-                    <i class="clr-primary fa fa-arrow-right me-2"></i>
-                    <span>Item 2</span>
-                </div>
+                <ul class="navbar-nav flex-column">
+                    <template v-for="link in footerLinks" :key="link.id">
+                        <li class="nav-item align-self-start">
+                            <a href="#" class="nav-link">
+                                <i class="clr-primary fa fa-arrow-right me-2"></i>
+                                <span>
+                                    {{link.linkName}}
+                                </span>
+                            </a>
+                        </li>
+                    </template>
+                </ul>
             </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
@@ -50,7 +50,27 @@
 
 <script>
 export default {
-
+    data() {
+        return {
+            footerLinks: [
+                {
+                    id: 1,
+                    linkName: "Item 1",
+                    pathName: 'activities'
+                },
+                {
+                    id: 2,
+                    linkName: "Item 2",
+                    pathName: 'activities',
+                },
+                {
+                    id: 3,
+                    linkName: "Item 3",
+                    pathName: 'activities',
+                },
+            ]
+        }
+    },
 }
 </script>
 
