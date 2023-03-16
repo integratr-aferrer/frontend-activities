@@ -1,8 +1,12 @@
 <template>
-  <div class="card shadow-sm border-0" style="width: 16rem">
+  <router-link :to="{path: `view-anime/${card.mal_id}`}" class="nav-link card shadow-sm border-0 text-decoration-none clr-secondary" style="width: 16rem">
     <div class="card-img-top" :style="{'background-image': `url(${card.images.jpg.image_url})`}"></div>
+    <div class="card-body">
+        <p class="h5 card-title h-25 mb-3">{{card.title}}</p>
+        <p class="card-text">{{card.synopsis}} {{card}}</p>
+    </div>
     <div class="card-img-overlay">
-        <span class="badge bg-white clr-primary">{{card.episodes}}</span>
+        <span class="badge bg-white clr-primary" >EP: {{card.episodes?card.episodes:'N/A'}}</span>
         <i @click="isOpen = !isOpen" class="text-white fs-5 float-end fa-solid fa-ellipsis-vertical" role="button"></i>
         <div v-if="isOpen" class="list-group float-end me-2">
             <button type="button" class="list-group-item list-group-item-action">Edit</button>
@@ -10,11 +14,7 @@
             <button type="button" class="list-group-item list-group-item-action bg-danger text-white" @click="$emit('deleteCard', card.id)">Delete</button>
         </div>
     </div>
-    <div class="card-body">
-        <p class="h5 card-title h-25 mb-3">{{card.title}}</p>
-        <p class="card-text">{{card.synopsis}}</p>
-    </div>
-  </div>
+  </router-link>
 </template>
 
 <script>

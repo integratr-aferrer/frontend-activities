@@ -38,9 +38,12 @@ export default {
             })
         },
         async fetchAnime() {
-            let anime = await axios.get("https://api.jikan.moe/v4/anime?limit=12");
-            this.cards = anime.data.data;
-            console.log(this.cards)
+            await axios.get("https://api.jikan.moe/v4/anime?limit=12").then((response)=>{
+                this.cards = response.data.data;
+            }).catch((error)=>{
+                alert("OOOPS!! Something went wrong!")
+            });
+            console.log(this.cards);
         },
     },
     mounted() {
