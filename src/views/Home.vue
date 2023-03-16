@@ -43,7 +43,6 @@ export default {
             }).catch((error)=>{
                 alert("OOOPS!! Something went wrong!")
             });
-            console.log(this.cards);
         },
     },
     mounted() {
