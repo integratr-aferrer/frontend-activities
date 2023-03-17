@@ -1,7 +1,7 @@
 <template>
     <header class="sticky-top bg-white">
         <nav class="navbar navbar-expand-sm shadow-sm">
-            <div class="container-fluid px-5 d-flex">
+            <div class="container-fluid px-4 px-sm-5 d-flex">
                 <router-link to="/" class="navbar-brand d-flex align-items-center fw-bold clr-primary">
                     <i class="brand-icon h2 me-2 fa-solid fa-dragon"></i>
                     <span class="brand-name h1 fw-bold">A.FERRER</span>

@@ -1,7 +1,7 @@
 <template>
   <section>
     <!-- hero page -->
-    <div class="row d-flex justify-content-center" v-if="details">
+    <div class="row d-flex justify-content-center justify-content-sm-around" v-if="details">
         <img class="col-12 col-md-6 col-lg-4 mb-3 me-2 mb-md-0 me-md-0 border-0 shadow p-0" style="max-height: 500px; max-width: 350px;" :src="details.image_url">
         <div class="col-12 col-md-6 col-lg-8 d-flex flex-column gap-2 float-end">
             <h2 class="h3 clr-secondary">{{details.title}}</h2>
