@@ -18,8 +18,8 @@
                             <li v-else class="nav-item dropdown">
                                 <a :class="{active:isActive}" class="nav-link dropdown-toggle" data-bs-auto-close="outside" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ link.linkName }}</a>
                                 <ul class="dropdown-menu">
-                                <template v-for="sublink in link.subLinks" :key="sublink.id">
-                                        <li><router-link :to="{path: `/activities/${sublink.id}`}" class="dropdown-item">{{sublink.linkName}}</router-link></li>
+                                <template v-for="(sublink, index) in link.subLinks" :key="index">
+                                        <li><router-link :to="{name: sublink.pathName}" class="dropdown-item">{{sublink.linkName}}</router-link></li>
                                 </template>
                                 </ul>
                             </li>
@@ -75,15 +75,14 @@ export default {
                     pathName: 'Activities',
                     subLinks: [
                         {
-                            id: 1,
-                            linkName: "Item 1",
+                            linkName: "Anime",
+                            pathName: 'Anime',
                         },
                         {
-                            id: 2,
-                            linkName: "Item 2",
+                            linkName: "News",
+                            pathName: 'News',
                         },
                         {
-                            id: 3,
                             linkName: "Item 3",
                         },
                     ]

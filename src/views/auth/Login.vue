@@ -29,7 +29,7 @@ export default {
         email: this.email,
         password: this.password
       }).then((response) => {
-        localStorage.setItem("currentUser", JSON.stringify(response.data.token));
+        localStorage.setItem("currentUser", JSON.stringify(response.data));
         this.$router.push('/');
       }).catch((err) => {
         if(err.response) {

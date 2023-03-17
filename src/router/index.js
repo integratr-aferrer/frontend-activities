@@ -3,7 +3,10 @@ import Home from '@/views/Home.vue';
 import HomePage from '@/views/HomePage.vue';
 import ViewAnime from '@/views/ViewAnime.vue';
 import About from '@/views/About.vue';
-import Activities from '@/views/Activities.vue';
+import Anime from '@/views/activities/Anime.vue';
+import News from '@/views/activities/News.vue';
+import ViewNews from '@/views/activities/ViewNews.vue';
+import EditNews from '@/views/activities/EditNews.vue';
 import Login from '@/views/auth/Login.vue';
 
 const routes = [
@@ -26,10 +29,20 @@ const routes = [
         component: About,
       },
       {
-        path: '/activities/:id',
+        path: '/activities',
         name: 'Activities',
-        props: true,
-        component: Activities,
+        children: [
+          {
+            path: '/anime',
+            name: 'Anime',
+            component: Anime,
+          },
+          {
+            path: '/news',
+            name: 'News',
+            component: News,
+          },
+        ]
       },
       {
         path: '/view-anime/:id',
@@ -37,6 +50,18 @@ const routes = [
         props: true,
         component: ViewAnime,
       },
+      {
+        path: '/view-news/:id',
+        name: 'ViewNews',
+        props: true,
+        component: ViewNews,
+      },
+      {
+        path: '/view-news/edit/:id',
+        name: 'EditNews',
+        props: true,
+        component: EditNews,
+      }
     ]
   },
   {
