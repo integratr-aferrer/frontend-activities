@@ -1,5 +1,5 @@
 <template>
-  <footer class="custom-bg-secondary text-white container-fluid px-5 py-5">
+  <footer class="custom-bg-secondary text-white container-fluid px-4 px-sm-5 py-5">
     <div class="row"> 
         <div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
             <h3 class="mb-3">Quick Links</h3>

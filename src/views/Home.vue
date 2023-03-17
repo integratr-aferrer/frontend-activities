@@ -2,7 +2,7 @@
     <section>
         <h1 class="display-5">Card Board</h1>
         <p class="lead">This section is the list of cards that can be manipulated (Edit, Hide and Delete).</p>
-        <div class="d-flex flex-wrap gap-5 justify-content-start">
+        <div class="d-flex flex-wrap gap-4 justify-content-start">
             <template v-for="card in cards" :key="card.id">
                 <Card v-if="!card.hidden" :card="card" @hideCard="hideCard" @deleteCard="deleteCard"></Card>
             </template>
