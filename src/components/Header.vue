@@ -25,8 +25,8 @@
                             </li>
                         </template>
                         <li class="nav-item">
-                            <a role="button" class="nav-link clr-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                Contact
+                            <a role="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Logout
                             </a>
                         </li>
                     </ul>
@@ -37,15 +37,15 @@
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Logout</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    ...
+                                    Are you sure?
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click="logoutUser()">Yes</button>
                                 </div>
                                 </div>
                             </div>
@@ -96,11 +96,17 @@ export default {
             return this.$route.name === 'Activities';
         }
     },
+    methods: {
+        logoutUser() {
+            localStorage.removeItem("currentUser");
+            this.$router.push({name: 'Login'});
+        }
+    }
 }
 </script>
 
 <style scoped>
-.router-link-active,.router-link-exact-active {
+.router-link-active {
     color: var(--primary);
 }
 
