@@ -7,6 +7,7 @@ import Anime from '@/views/activities/Anime.vue';
 import News from '@/views/activities/News.vue';
 import ViewNews from '@/views/activities/ViewNews.vue';
 import EditNews from '@/views/activities/EditNews.vue';
+import CreateNews from '@/views/activities/CreateNews.vue';
 import Login from '@/views/auth/Login.vue';
 
 const routes = [
@@ -61,6 +62,11 @@ const routes = [
         name: 'EditNews',
         props: true,
         component: EditNews,
+      },
+      {
+        path: '/news/create',
+        name: 'CreateNews',
+        component: CreateNews,
       }
     ]
   },

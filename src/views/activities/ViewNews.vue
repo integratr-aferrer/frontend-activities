@@ -1,11 +1,11 @@
 <template>
   <section v-if="news">
-    <div class="row mb-2">
-      <router-link :to="{name: 'News'}" class="col-6 fs-5 clr-primary text-uppercase text-decoration-none">
+    <div class="d-flex justify-content-between mb-2">
+      <router-link :to="{name: 'News'}" class=" fs-5 clr-primary text-uppercase text-decoration-none">
         <i class="fa-solid fa-arrow-left me-2"></i>
         <span>Back</span>
       </router-link>
-      <router-link :to="{name: 'News'}" class="col-6 text-end fs-5 clr-secondary text-uppercase text-decoration-none">
+      <router-link :to="{path: `/view-news/edit/${id}`}" class="text-end fs-5 clr-secondary text-uppercase text-decoration-none">
         <span>Edit</span>
         <i class="fa-solid fa-pen-to-square ms-2"></i>
       </router-link>
@@ -18,7 +18,7 @@
       <span class="badge" :class="[news.is_featured ? 'bg-success' : 'bg-danger']">Featured</span>
     </div>
     <p class="lead position-relative align-items-start text-justify">
-      <img class="news-image img-fluid float-start m-0 mb-2 mb-md-0 m-md-3 mt-md-0 ms-md-0" style="max-width: 560px;" :src="news.news_url">
+      <img v-if="news.news_url" class="news-image img-fluid float-start m-0 mb-2 mb-md-0 m-md-3 mt-md-0 ms-md-0" style="max-width: 560px;" :src="news.news_url">
       <span v-html="news.article"></span>
     </p>
   </section>

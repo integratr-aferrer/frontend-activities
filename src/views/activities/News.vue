@@ -1,7 +1,13 @@
 <template>
   <section>
     <h3 class="display-5">News</h3>
-    <p class="lead">Collection of news from api.</p>
+    <div class="d-flex justify-content-between">
+        <p class="lead">Collection of news from api.</p>
+         <router-link :to="{path: 'news/create'}" class="col-6 text-end fs-6 clr-primary text-uppercase text-decoration-none">
+            <i class="fa-solid fa-plus me-3"></i>
+            <span>Create News</span>
+        </router-link>
+    </div>
     <table v-if="tableData" class="table table-striped table-hover border">
       <thead>
         <tr class="custom-bg-secondary text-white">
